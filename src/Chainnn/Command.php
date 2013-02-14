@@ -174,6 +174,16 @@ class Command
     }
 
     /**
+     * Has command any child commands.
+     *
+     * @return boolean
+     */
+    public function hasChildren()
+    {
+        return count($this->children) > 0;
+    }
+
+    /**
      * Returns a specific child command.
      *
      * @param  \Chainnn\Command|string $command Method name if string.
@@ -190,6 +200,16 @@ class Command
         }
 
         return isset($this->children[$command]) ? $this->children[$command] : null;
+    }
+
+    /**
+     * Returns the command's list of children.
+     *
+     * @return \Chainnn\Command[]
+     */
+    public function getChildren()
+    {
+        return $this->children;
     }
 
     /**
