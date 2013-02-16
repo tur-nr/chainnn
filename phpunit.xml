@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit colors="true" bootstrap="src/Chainnn/Tests/bootstrap.php">
+    <testsuites>
+        <testsuite name="Chainnn Test Suite">
+            <directory>src/Chainnn/Tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

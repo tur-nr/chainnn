@@ -20,11 +20,6 @@ use Chainnn\Command;
  */
 class CommandTest extends \PHPUnit_Framework_TestCase
 {
-    public function setUp()
-    {
-        require_once(implode(DIRECTORY_SEPARATOR, array(__DIR__, '..', 'Command.php')));
-    }
-
     /**
      * Create from map test data provider.
      *
@@ -49,6 +44,9 @@ class CommandTest extends \PHPUnit_Framework_TestCase
      * Create from map tests.
      *
      * @dataProvider providerCreateFromMap
+     *
+     * @param string $method
+     * @param array  $children
      */
     public function testCreateFromMap($method, array $children = array())
     {
@@ -87,5 +85,31 @@ class CommandTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($childCommand->hasParent());
         $this->assertTrue($childCommand->isParent($parentCommand));
         $this->assertFalse($childCommand->hasChildren());
+    }
+
+    /**
+     * Test the command will end by adding a child to it.
+     */
+    public function testCommandWillEndConstraint()
+    {
+        $this->setExpectedException('\\Chainnn\\Exception\\LogicException');
+
+        $parentCommand = new Command('parentMethod', array('endChain' => true));
+        $childCommand = new Command('childMethod');
+
+        $parentCommand->addChild($childCommand);
+    }
+
+    /**
+     * Test the command will return to base by adding a child to it.
+     */
+    public function testCommandWillReturnToBaseConstraint()
+    {
+        $this->setExpectedException('\\Chainnn\\Exception\\LogicException');
+
+        $parentCommand = new Command('parentMethod', array('returnToBase' => true));
+        $childCommand = new Command('childMethod');
+
+        $parentCommand->addChild($childCommand);
     }
 }

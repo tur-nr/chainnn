@@ -22,7 +22,7 @@ namespace Chainnn;
 class ChainOfCommand
 {
     /**
-     * @var array $commandList
+     * @var \Chainnn\Command[] $commandList
      */
     protected $commandList;
 

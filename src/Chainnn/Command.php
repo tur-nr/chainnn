@@ -35,7 +35,7 @@ class Command
     protected $attributes;
 
     /**
-     * @var array $children
+     * @var \Chainnn\Command[] $children
      */
     protected $children;
 
