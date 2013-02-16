@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/tur-nr/chainnn.png?branch=master)](https://travis-ci.org/tur-nr/chainnn)
+
 # README
 
 ## What is Chainnn?
@@ -13,4 +15,4 @@ For the time being take a look in the `/example` directory.
 
 ### Todos
 
-Documentation and tests.
+Documentation.
